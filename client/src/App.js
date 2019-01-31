@@ -5,6 +5,7 @@ import Layout from './components/Layout'
 import { Switch, Route } from 'react-router-dom'
 import Login from './components/Login'
 import httpClient from './utilities/httpClient'
+import Signup from './components/Signup'
 
 class App extends Component {
 
@@ -17,6 +18,8 @@ class App extends Component {
   }
 
 
+
+
   render() {
     return (
       <Layout currentUser={this.state.currentUser}>
@@ -25,6 +28,9 @@ class App extends Component {
 						return <Login {...props} onLoginSuccess={this.onAuthSuccess} />
 					}}/>
           <Route path='/profile' component={Home} />
+          <Route path='/signup' render={(props) => {
+						return <Signup {...props} onSignupSuccess={this.onAuthSuccess} />
+					}}/>
         </Switch>
       </Layout>
 

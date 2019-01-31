@@ -43,6 +43,7 @@ httpClient.logout = function() {
     return true;
 }
 
+
 // During initial app load, attpempt to set a localStorage stored token
 // as a default header for all api requests.
 httpClient.defaults.headers.common.token = httpClient.getToken();
