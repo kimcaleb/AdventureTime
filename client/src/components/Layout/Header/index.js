@@ -14,6 +14,7 @@ export default ({ currentUser }) => {
           <span>
             <Link className='nav-link' to='/profile'>Profile</Link>
             <Link className='nav-link' to='/logout'>Logout</Link>
+            <Link className='nav-link' to='/profile/edit'>Edit</Link>
           </span>
         )
         : (
