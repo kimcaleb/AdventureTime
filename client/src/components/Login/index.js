@@ -7,20 +7,20 @@ export default class Login extends Component {
         password: ""
     }
 
-    handleSubmit = async (e) => {
-        e.preventDefault();
-        let user = await httpClient.authenticate(this.state, '/api/users/authenticate');
-        if (user) {
-            this.props.onLoginSuccess();
-            this.props.history.push("/");
-        }
-
-    }
-
     handleChange = (e) => {
         let {name, value} = e.target;
         this.setState({[name]:value})
     }
+
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        let user = await httpClient.authenticate(this.state, "/api/users/authenticate");
+        if (user) {
+            this.props.onLoginSuccess();
+            this.props.history.push('/profile');
+        }
+    }
+
 
     render(){ 
         let { email, password } = this.state;

@@ -1,5 +1,5 @@
 const User = require('../models/User')
-const signToken = require('../ServerAuth').signToken
+const signToken = require('../serverAuth').signToken
 
 module.exports = {
   // List all the users
@@ -42,14 +42,16 @@ module.exports = {
       res.json({ message: 'Success', payload: user })
     })
   },
-  authenticate: (req, res) => {
-    let { email, password } = req.body
-    User.findOne({ email }), (err, user) => {
-      if (!user || !user.validPassword(password)) {
-        return res.json({ success: false, message: 'invalid email or password'})
+
+	authenticate: (req, res) => {
+		let { email, password } = req.body;
+		User.findOne({ email }, (err, user) => {
+			if (!user || !user.validPassword(password)) {
+				return res.json({ success: false, message: "Invalid Credentials" });
       }
-      const token = signToken(user)
-      res.json({ success: true, token })
-    }
-  }
+      
+			const token = signToken(user);
+			res.json({ success: true, token });
+		})
+	}
 }

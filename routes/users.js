@@ -1,6 +1,6 @@
 const express = require('express');
-const usersRouter = express.Router();
-const User = require('../controllers/users');
+const usersRouter = new express.Router();
+const User = require('../controllers/users.js');
 const verifyToken = require('../serverAuth').verifyToken;
 
 //Non protected routes
