@@ -14,6 +14,7 @@ export default class Login extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
+        debugger
         let user = await httpClient.authenticate(this.state, "/api/users/authenticate");
         if (user) {
             this.props.onLoginSuccess();

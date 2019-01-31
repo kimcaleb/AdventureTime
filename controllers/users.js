@@ -44,13 +44,16 @@ module.exports = {
   },
 
 	authenticate: (req, res) => {
+
 		let { email, password } = req.body;
 		User.findOne({ email }, (err, user) => {
+
 			if (!user || !user.validPassword(password)) {
+        console.log(password);
 				return res.json({ success: false, message: "Invalid Credentials" });
       }
-      
-			const token = signToken(user);
+      console.log(user);
+      const token = signToken(user);
 			res.json({ success: true, token });
 		})
 	}
