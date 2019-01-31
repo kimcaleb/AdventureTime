@@ -26,12 +26,13 @@ module.exports = {
   },
 
   update: (req, res) => {
-    User.findByIdAndUpdate(req.params.id, (err, user) => {
+    User.findById(req.params.id, (err, user) => {
       if (!req.body.password) delete req.body.password
       Object.assign(user, req.body)
       user.save((err, updatedUser) => {
         if (err) return res.json({ message: 'Error', payload: null, code: err.code })
-        res.json({ message: 'Success', payload: updatedUser })
+        const token = signToken(user);
+        res.json({ message: 'Success', payload: {updatedUser, token }})
       })
     })
   },
@@ -47,9 +48,8 @@ module.exports = {
 
 		let { email, password } = req.body;
 		User.findOne({ email }, (err, user) => {
-
+      
 			if (!user || !user.validPassword(password)) {
-        console.log(password);
 				return res.json({ success: false, message: "Invalid Credentials" });
       }
       console.log(user);

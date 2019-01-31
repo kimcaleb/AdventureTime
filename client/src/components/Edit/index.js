@@ -3,11 +3,12 @@ import httpClient from '../../utilities/httpClient';
 
 
 export default class Edit extends Component {
+    
     state= {
-        name: "",
-        email: "",
+        name: this.props.currentUser.name,
+        email: this.props.currentUser.email,
         password: "",
-        PlaceName: ""
+        PlaceName: this.props.currentUser.PlaceName 
     }
     handleChange = (e) => {
         let { name, value } = e.target
@@ -16,7 +17,7 @@ export default class Edit extends Component {
     }
     handleSubmit = async (e) => {
         e.preventDefault()
-        let user = await httpClient.authenticate(this.state, '/api/users/authenticate');
+        let user = await httpClient.updateUser(this.state, `/api/users/${this.props.currentUser._id}`);
         if (user) {
             this.props.onLoginSuccess()
             this.props.history.push('/profile')
@@ -24,7 +25,6 @@ export default class Edit extends Component {
     }
   render () {
       
-    let { currentUser } = this.props
     let { name, email, password, PlaceName } = this.state
     return (
       <div>
@@ -37,19 +37,17 @@ export default class Edit extends Component {
               <input
                 type='text'
                 name='name'
-                placeholder={`${currentUser.name}`}
                 onChange={this.handleChange}
-                value={`${currentUser.name}`}
+                value={name}
               />
               <label>Email: </label>
               <input
                 type='text'
                 name='email'
-                placeholder={`${currentUser.email}`}
                 onChange={this.handleChange}
-                value={`${currentUser.email}`}
+                value={email}
               />
-              <label>Password: </label>
+              <label>New Password: </label>
               <input
                 type='password'
                 name='password'
@@ -62,7 +60,7 @@ export default class Edit extends Component {
                 type='text'
                 name='PlaceName'
                 onChange={this.handleChange}
-                value={`${currentUser.PlaceName}`}>
+                value={PlaceName}>
                 <option value=''>Select a state</option>
                 <option value='Los Angeles'>Los Angeles</option>
                 <option value='New York City'>New York City</option>

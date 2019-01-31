@@ -37,6 +37,23 @@ httpClient.authenticate = async function(credentials, url) {
     }
 }
 
+httpClient.updateUser = async function(credentials, url) {
+    try {
+        
+        let res = await this({method: "patch", url, data:credentials });
+        const {token} = res.data.payload;
+
+        if (token) {
+            this.defaults.headers.common.token = this.setToken(token);
+            return jwtDecode(token)
+        } else {
+            return false;
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 httpClient.logout = function() {
     localStorage.removeItem('token');
     delete this.defaults.headers.common.token;
