@@ -54,6 +54,19 @@ httpClient.updateUser = async function(credentials, url) {
     }
 }
 
+httpClient.deleteUser = async function(credentials, url) {
+    try {
+        let res = await this({method: "delete", url, data:credentials});
+        const user = res.data.payload
+        
+        if (user) {
+            return httpClient.logout();
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 httpClient.logout = function() {
     localStorage.removeItem('token');
     delete this.defaults.headers.common.token;

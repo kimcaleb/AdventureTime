@@ -41,7 +41,7 @@ class App extends Component {
 					}}/>
           <Route exact path='/profile/edit' render={(props) => {
 						return <Edit {...props} currentUser={this.state.currentUser} onLoginSuccess={this.onAuthSuccess} />
-					}}/>
+					}}/>          
         </Switch>
       </Layout>
 

@@ -23,6 +23,14 @@ export default class Edit extends Component {
             this.props.history.push('/profile')
         }
     }
+
+    handleDelete = async (e) => {
+        e.preventDefault()
+        let user = await httpClient.deleteUser(this.state,`/api/users/${this.props.currentUser._id}`)
+        if (user) {
+          this.props.history.push('/')
+        }
+    }
   render () {
       
     let { name, email, password, PlaceName } = this.state
@@ -67,6 +75,10 @@ export default class Edit extends Component {
                 <option value='Miami'>Miami</option>
               </select>
               <input type='submit' />
+            </form>
+           
+            <form onSubmit={this.handleDelete}>
+              <input type="submit" value="Delete Profile" />
             </form>
           </div>
         </div>
