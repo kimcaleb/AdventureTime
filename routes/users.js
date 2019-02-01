@@ -17,7 +17,7 @@ usersRouter.patch('/:id', User.update);
 usersRouter.delete('/:id', User.destroy);
     //City routes
 usersRouter.post('/:id/cities', City.create);
-usersRouter.delete('/:id/cities/:id', City.destroy);
+usersRouter.delete('/:id/cities/:city_id', City.destroy);
 
 
 
