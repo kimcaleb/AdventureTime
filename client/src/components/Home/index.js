@@ -19,7 +19,7 @@ export default class Profile extends Component {
       debugger
       axios.delete(`/api/users/${this.props.currentUser._id}/cities/${e.target.title}`)
       .then( res => {
-        debugger
+      debugger
         this.setState({ user:res.data.updatedUser })
       }
 

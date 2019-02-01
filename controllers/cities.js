@@ -14,7 +14,7 @@ module.exports = {
 
   destroy: (req, res) => {
     let { user_id, city_id } = req.params
-    User.findOneAndUpdate(user_id, {
+    User.findByIdAndUpdate(user_id, {
       $pull: { cities: { id: city_id } }
     }, { new: true }, (err, updatedUser) => {
         updatedUser.save()
