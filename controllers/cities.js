@@ -1,8 +1,8 @@
-const City = require('../models/User');
+const User = require('../models/User');
 
 module.exports = {
     create: (req,res) => {
-        City.findById(req.params.id, (err,user) => {
+        User.findById(req.params.id, (err,user) => {
             if (err) return res.json({message:'Error'})
             user.cities.push(req.body);
             user.save( err => {
@@ -13,7 +13,7 @@ module.exports = {
     },
 
     destroy: (req,res) => {
-        City.findByIdAndRemove(req.params.id, (err,city) => {
+        User.findByIdAndRemove(req.params.id, (err,city) => {
             if (err) return res.json({message:'Error'});
             res.json({message:'Success'});
         })

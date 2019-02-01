@@ -7,7 +7,7 @@ function signToken (user) {
   console.log(user)
   const userData = user.toObject() // Convert user document from mongo to basic JS object.
   delete userData.password // Delete the password property from the object
-
+  delete userData.cities;
   return jwt.sign(userData, JWT_SECRET)
 }
 
