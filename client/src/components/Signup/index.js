@@ -30,7 +30,8 @@ export default class SignUp extends Component {
     debugger
       let {name, email, password, PlaceName} = this.state
     return (
-      <div>
+      <div className="hero">
+      <div className="login">
         <h1>Adventure Time</h1>
         <h3>Sign Up</h3>
         <div className='row'>
@@ -75,6 +76,7 @@ export default class SignUp extends Component {
             </form>
           </div>
         </div>
+      </div>
       </div>
 
     )

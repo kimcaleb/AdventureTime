@@ -25,12 +25,14 @@ export default class Login extends Component {
     render(){ 
         let { email, password } = this.state;
         return (
-            <div>
-                <h1>Login</h1>
+            <div className="hero">
+            <div className="login">
+                <h1>Adventure Time</h1>
+                <h3>Login</h3>
                 <div className="row">
                     <div className="column column-50 column-offset-25">
-                        <form onSubmit={this.handleSubmit}>
-                            <label>Email: </label>
+                        <form onSubmit={this.handleSubmit} className="form">
+                            <label className="label">Email</label>
                             <input
                                 type="text"
                                 name="email"
@@ -38,7 +40,7 @@ export default class Login extends Component {
                                 onChange={this.handleChange}
                                 value={email}
                                 />
-                            <label>Password: </label>
+                            <label className="label">Password</label>
                             <input
                                 type="password"
                                 name="password"
@@ -50,7 +52,8 @@ export default class Login extends Component {
                         </form>
                     </div>
                 </div>
-            </div>            
+            </div>
+        </div>          
         )
 
     }

@@ -1,1 +1,46 @@
+/* font-family: 'Bungee', cursive; */
 
+h1 {
+    margin-top: 1em !important;
+    font-family: 'Bungee', cursive;
+    font-size: 5em !important;
+    text-align: center;
+    color: black;
+}
+h3 {
+    text-align: center;
+    color: black !important;
+}
+.hero {
+    background: url("https://i.imgur.com/g8YE7KD.jpg") no-repeat center fixed; 
+    background-size: cover;
+    height: 1000px;
+    width: 100%;
+}
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+label {
+    color: black
+}
+.nav {
+    background-color: lightsteelblue;
+    color: white;
+}
+
+a .nav {
+    color: white;
+    text-decoration: none;
+}
