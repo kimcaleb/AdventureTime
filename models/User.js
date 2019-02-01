@@ -1,11 +1,25 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt-nodejs')
-const userSchema = new mongoose.Schema({
-    name: { type: String },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    PlaceName: { type: String, required: true}
-})
+const 
+    citySchema = new mongoose.Schema({
+        city: {type: String, required:true},
+        country: {type: String, required:true},
+        price: {type: String }
+    }, {timestamps:true}),
+    placeSchema = new mongoose.Schema({
+        title: {type: String, require:true},
+        location: {type: String},
+        description: {type: String},
+        image: {type:String}
+    },{timestamps:true})
+    userSchema = new mongoose.Schema({
+        name: { type: String },
+        email: { type: String, required: true, unique: true },
+        password: { type: String, required: true },
+        PlaceName: { type: String, required: true},
+        cities: [citySchema],
+        places: [placeSchema]      
+    }, {timestamps:true})
 
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8))

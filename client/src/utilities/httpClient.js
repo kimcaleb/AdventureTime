@@ -22,8 +22,8 @@ httpClient.authenticate = async function(credentials, url) {
 
     try {
     
-        let res = await this({ method: "post", url, data: credentials  });
-    
+        let res = await this({ method: "post", url, data: credentials });
+        
         const token = res.data.token;
         
         if (token) {
