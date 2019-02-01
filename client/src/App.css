@@ -29,11 +29,12 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
+    
 }
 
 label {
-    color: black
+    color: black;
 }
 .nav {
     background-color: lightsteelblue;
@@ -43,4 +44,8 @@ label {
 a .nav {
     color: white;
     text-decoration: none;
+}
+
+.input {
+    background-color: beige !important;
 }

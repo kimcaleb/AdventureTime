@@ -39,6 +39,7 @@ export default class SignUp extends Component {
             <form onSubmit={this.handleSubmit}>
               <label>Name: </label>
               <input
+              className='input'
                 type='text'
                 name='name'
                 placeholder='Whats your name?'
@@ -47,6 +48,7 @@ export default class SignUp extends Component {
               />
               <label>Email: </label>
               <input
+              className='input'
                 type='text'
                 name='email'
                 placeholder='Whats Your Email?'
@@ -55,6 +57,7 @@ export default class SignUp extends Component {
               />
               <label>Password: </label>
               <input
+              className='input'
                 type='password'
                 name='password'
                 placeholder='Secret Password...'
@@ -63,6 +66,7 @@ export default class SignUp extends Component {
               />
               <label>City: </label>
               <select
+              className='input'
               type='text'
               name='PlaceName'
               onChange={this.handleChange}

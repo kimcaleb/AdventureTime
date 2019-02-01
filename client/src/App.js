@@ -8,6 +8,7 @@ import httpClient from './utilities/httpClient'
 import Signup from './components/Signup'
 import Logout from './components/Logout'
 import Edit from './components/Edit'
+import City from './components/City'
 
 class App extends Component {
 
@@ -35,13 +36,16 @@ class App extends Component {
           <Route exact path='/logout' render={() => {
             return <Logout logOut={this.logOut} /> 
           }} />
-          <Route exact path='/profile' component={Home} />
+          <Route exact path='/profile' render={(props) => {
+          return <Home {...props} currentUser={this.state.currentUser} /> }} />
           <Route path='/signup' render={(props) => {
 						return <Signup {...props} onSignupSuccess={this.onAuthSuccess} />
 					}}/>
           <Route exact path='/profile/edit' render={(props) => {
 						return <Edit {...props} currentUser={this.state.currentUser} onLoginSuccess={this.onAuthSuccess} />
-					}}/>          
+					}}/>
+          <Route exact path='/profile/city' render={(props) => {
+          return <City {...props} currentUser={this.state.currentUser} /> }} />      
         </Switch>
       </Layout>
 

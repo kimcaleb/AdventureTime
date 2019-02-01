@@ -34,6 +34,7 @@ export default class Login extends Component {
                         <form onSubmit={this.handleSubmit} className="form">
                             <label className="label">Email</label>
                             <input
+                            className='input'
                                 type="text"
                                 name="email"
                                 placeholder="john@applseed.com" 
@@ -42,6 +43,7 @@ export default class Login extends Component {
                                 />
                             <label className="label">Password</label>
                             <input
+                            className='input'
                                 type="password"
                                 name="password"
                                 placeholder="Secret Password..." 
