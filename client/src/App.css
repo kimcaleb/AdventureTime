@@ -12,27 +12,34 @@ h3 {
     color: black !important;
 }
 .hero {
+    position: absolute;
     background: url("https://i.imgur.com/g8YE7KD.jpg") no-repeat center fixed; 
     background-size: cover;
     height: 1000px;
     width: 100%;
 }
+.addCity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    font-family:'Bungee', cursive; 
+    background-color: black;
+    color: antiquewhite !important; 
+}
 .login {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    
+    flex-direction: column;  
 }
-
 .form {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
-
 label {
     color: black;
 }
@@ -40,12 +47,28 @@ label {
     background-color: lightsteelblue;
     color: white;
 }
-
 a .nav {
     color: white;
     text-decoration: none;
 }
-
 .input {
     background-color: beige !important;
+}
+.cityBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 1%;
+    color: white;
+    margin: 10px 50px;
+}
+.btn {
+    width: 10px;
+    height: 10px;
+    background-color: beige !important;
+    color: black !important;
+    text-align: center;
+
 }

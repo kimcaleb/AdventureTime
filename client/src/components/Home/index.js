@@ -11,42 +11,41 @@ export default class Profile extends Component {
         .then( res => {
           this.setState({user:res.data.payload})
         });
-        debugger
     }
 
     handleDelete = (e) => {
       e.preventDefault()
-      debugger
       axios.delete(`/api/users/${this.props.currentUser._id}/cities/${e.target.title}`)
       .then( res => {
-      debugger
         this.setState({ user:res.data.updatedUser })
       }
 
       )
     }
     render () {
-      
     let {user} = this.state
-    
     if (user) {
         return (
+        <div className="hero">
           <div>
             <h1>Adventure Time</h1>
-            <Link to='/profile/city'>City</Link>
+            <div>
+            <Link className="addCity" to='/profile/city'>Add A City Here!</Link>
+            </div>
             {user.cities.map((city, index) => {
               return (
-                <div key={index}>
-                <form onSubmit={this.handleDelete} title={city._id}>
-
-                 <p key={index}>{city.city}, {city.country}</p>
-            
-                 <input type='hidden' value={city._id} />
-                 <input value="delete" type="submit"/>
-            </form>
+            <div key={index} className="cityBox">
+            <div>
+              <form onSubmit={this.handleDelete} title={city._id}>
+                  <p key={index}>{city.city}, {city.country}</p>
+                <input type='hidden' value={city._id} />
+                <input className="btn" value="delete" type="submit"/>
+              </form>
+              </div>
             </div>
              ) })}
           </div>
+        </div>
       ) } else {
         return (
           <div>
