@@ -6,9 +6,6 @@ export default class City extends Component {
         title: "",
         description: ""
     }
-    componentDidMount() {
-      debugger
-    }
     handleChange = (e) => {
         let {name, value} = e.target
         this.setState({[name]:value})
@@ -17,7 +14,7 @@ export default class City extends Component {
         handleSubmit = async (e) => {
         e.preventDefault()
         let city = await httpClient.addNewPlace(this.state, `/api/users/${this.props.currentUser._id}/cities/${this.props.location.state.city}/places`)
-        debugger
+
         if (city){
             this.props.history.push('/profile')
         } else {
@@ -26,7 +23,6 @@ export default class City extends Component {
     }
   render () {
       let { title, description } = this.state
-      debugger
     return (
       <div className='hero'>
         <div className='login'>

@@ -6,12 +6,18 @@ export default class Profile extends Component {
    state = {
       user:null
    }
+
+   //// this is bringing in data for user
     componentDidMount() { 
      axios.get(`/api/users/${this.props.currentUser._id}`)
         .then( res => {
           this.setState({user:res.data.payload})
         });
     }
+
+
+//// this is handle the city delete button
+
 
     handleDelete = (e) => {
       e.preventDefault()
@@ -22,14 +28,34 @@ export default class Profile extends Component {
       )
     }
 
-    handleAddNewPlace = (e) => {
+
+////  this is handling the places delete button
+
+
+    handleDeletePlace = (e) => {
       e.preventDefault()
       debugger
+      axios.delete(`/api/users/${this.props.currentUser._id}/cities/${e.target.title}/places/${e.target.target}`)
+      .then( res => {
+        debugger
+        this.setState({ user:res.data.user })
+      }
+      )
+    }
+
+
+////this is handling the add new place button
+
+
+    handleAddNewPlace = (e) => {
+      e.preventDefault()
       this.props.history.push({
         pathname: '/profile/place',
         state: { city: e.target.title }
       })
     }
+
+
     render () {
     let {user} = this.state
     if (user) {
@@ -42,18 +68,28 @@ export default class Profile extends Component {
             </div>
             {user.cities.map((city, index) => {
               return (
-            <div key={index} className="cityBox">
-            <div>
-              <form onSubmit={this.handleDelete} title={city._id}>
-                  <p key={index}>{city.city}, {city.country}</p>
-                
-                <input className="btn" value="delete" type="submit"/>
-              </form>
-             <form onSubmit={this.handleAddNewPlace} title={city._id}>
-               <input className='btn' value='Add New Place' type='submit'/>
-             </form>
+                <div key={index} className="cityBox">
+                  <div>
+                    <h2 key={city._id}>{city.city}, {city.country}</h2>
+                    <form onSubmit={this.handleDelete} title={city._id}>
+                      <input className="btn" value="delete" type="submit"/>
+                    </form>
+                    <form onSubmit={this.handleAddNewPlace} title={city._id}>
+                      <input className='btn' value='Add New Place' type='submit'/>
+                    </form>
+                  </div>
+                {city.places.map((place, index) => {
+                    return (
+                      <div key={place._id}>
+                        <h3> {place.title}</h3>
+                        <p> {place.description}</p>
+                        <form onSubmit={this.handleDeletePlace} target={place._id} title={city._id}>
+                          <input className="btn" value="pd" type="submit"/>
+                        </form>
+                      </div>
+               )
+             })}
               </div>
-            </div>
              ) })}
           </div>
         </div>
