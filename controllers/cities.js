@@ -15,11 +15,13 @@ module.exports = {
   destroy: (req, res) => {
     let { user_id, city_id } = req.params
     User.findByIdAndUpdate(user_id, {
-      $pull: { cities: { id: city_id } }
+      $pull: { cities: { _id: city_id } }
     }, { new: true }, (err, updatedUser) => {
-        updatedUser.save()
       if (err) return res.json({ message: 'Error' })
       res.json({ message: 'Success', updatedUser })
     })
   }
 }
+
+
+
