@@ -5,11 +5,11 @@ const app = express()
 const logger = require('morgan')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const MONGOD_URI = process.env.MONGOD_URI
+const MOGODB_URI = process.env.MOGODB_URI
 const PORT = process.env.PORT || 3001
 const usersRoutes = require('./routes/users.js')
 
-mongoose.connect(MONGOD_URI, { useNewUrlParser: true }, (err) => {
+mongoose.connect(MOGODB_URI, { useNewUrlParser: true }, (err) => {
   console.log(err || 'Connected to MOngoDB')
 })
 

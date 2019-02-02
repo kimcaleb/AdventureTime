@@ -19,8 +19,16 @@ export default class Profile extends Component {
       .then( res => {
         this.setState({ user:res.data.updatedUser })
       }
-
       )
+    }
+
+    handleAddNewPlace = (e) => {
+      e.preventDefault()
+      debugger
+      this.props.history.push({
+        pathname: '/profile/place',
+        state: { city: e.target.title }
+      })
     }
     render () {
     let {user} = this.state
@@ -38,10 +46,12 @@ export default class Profile extends Component {
             <div>
               <form onSubmit={this.handleDelete} title={city._id}>
                   <p key={index}>{city.city}, {city.country}</p>
-                <input type='hidden' value={city._id} />
+                
                 <input className="btn" value="delete" type="submit"/>
               </form>
-              <Link to={{ pathname:'/profile/place', state:{user: user.city._id} }}>Add A Place Here!</Link>
+             <form onSubmit={this.handleAddNewPlace} title={city._id}>
+               <input className='btn' value='Add New Place' type='submit'/>
+             </form>
               </div>
             </div>
              ) })}

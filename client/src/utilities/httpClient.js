@@ -91,8 +91,8 @@ httpClient.addNewCity = async function (credentials, url) {
 httpClient.addNewPlace = async function (credentials, url) {
   try {
     let res = await this({ method: 'post', url, data: credentials })
-    const { places } = res.data
-    return places
+    const { city } = res.data
+    return city
   } catch (err) {
     console.log(err)
   }

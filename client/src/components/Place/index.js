@@ -16,9 +16,10 @@ export default class City extends Component {
 
         handleSubmit = async (e) => {
         e.preventDefault()
-        let places = await httpClient.addNewPlace(this.state, `/api/users/${this.props.currentUser._id}/cities/`)
-        if (places){
-        this.props.history.push('/profile')
+        let city = await httpClient.addNewPlace(this.state, `/api/users/${this.props.currentUser._id}/cities/${this.props.location.state.city}/places`)
+        debugger
+        if (city){
+            this.props.history.push('/profile')
         } else {
             console.log('we suck')
         }
