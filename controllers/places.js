@@ -10,14 +10,13 @@ module.exports = {
         city.places.push(req.body);
         city.save(err => {
           if (err) console.log('Could not update city')
-          res.json({message:'Success', city});
-
+          user.save(err => {
+            if (err) console.log(err)
+            res.json({ message: 'Success', city})
+          })
         })
       })
-      user.save(err => {
-        if (err) console.log(err)
-        res.json({ message: 'Success', user })
-      })
+ 
     })
   },
 
