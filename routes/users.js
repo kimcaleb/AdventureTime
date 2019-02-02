@@ -3,6 +3,7 @@ const usersRouter = new express.Router()
 const User = require('../controllers/users.js')
 const verifyToken = require('../serverAuth').verifyToken
 const City = require('../controllers/cities.js')
+const Place = require('../controllers/places.js')
 
 // Non protected routes
 usersRouter.get('/', User.index)
