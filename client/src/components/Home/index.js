@@ -41,6 +41,7 @@ export default class Profile extends Component {
                 <input type='hidden' value={city._id} />
                 <input className="btn" value="delete" type="submit"/>
               </form>
+              <Link to={{ pathname:'/profile/place', state:{city: city._id} }}>Add A Place Here!</Link>
               </div>
             </div>
              ) })}

@@ -84,6 +84,19 @@ httpClient.addNewCity = async function (credentials, url) {
   }
 }
 
+//= ======================================
+// this are axios calls for places
+//= ========================================///
+
+httpClient.addNewPlace = async function (credentials, url) {
+  try {
+    let res = await this({ method: 'post', url, data: credentials })
+    const { places } = res.data
+    return places
+  } catch (err) {
+    console.log(err)
+  }
+}
 // During initial app load, attpempt to set a localStorage stored token
 // as a default header for all api requests.
 httpClient.defaults.headers.common.token = httpClient.getToken()

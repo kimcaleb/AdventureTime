@@ -9,6 +9,7 @@ import Signup from './components/Signup'
 import Logout from './components/Logout'
 import Edit from './components/Edit'
 import City from './components/City'
+import Place from './components/Place'
 
 class App extends Component {
 
@@ -45,7 +46,9 @@ class App extends Component {
 						return <Edit {...props} currentUser={this.state.currentUser} onLoginSuccess={this.onAuthSuccess} />
 					}}/>
           <Route exact path='/profile/city' render={(props) => {
-          return <City {...props} currentUser={this.state.currentUser} /> }} />      
+          return <City {...props} currentUser={this.state.currentUser} /> }} />
+          <Route exact path='/profile/place' render={(props) => {
+          return <Place {...props} currentUser={this.state.currentUser} /> }} />       
         </Switch>
       </Layout>
 
