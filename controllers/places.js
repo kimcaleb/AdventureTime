@@ -2,9 +2,18 @@ const User = require('../models/User')
 
 module.exports = {
   create: (req, res) => {
-    User.findById(req.params.id, (err, user) => {
+    let {user_id, city_id} = req.params;
+    User.findById(user_id, (err, user) => {
       if (err) return res.json({ message: 'Error' })
-      user.cities.push(req.body)
+      user.cities.findbyId(city_id, (err, city) => {
+          if (err) return res.json({message:'No city Found'})
+        city.places.push(req.body);
+        city.save(err => {
+          if (err) console.log('Could not update city')
+          res.json({message:'Success', city});
+
+        })
+      })
       user.save(err => {
         if (err) console.log(err)
         res.json({ message: 'Success', user })
