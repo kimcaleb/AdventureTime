@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import httpClient from '../../utilities/httpClient';
+import httpClient from '../../utilities/httpClient'
+import Browse from './Browse'
 
-export default class City extends Component {
+export default class Place extends Component {
     state= {
         title: "",
-        description: ""
+        description: "",
+        city: null
+
     }
     handleChange = (e) => {
         let {name, value} = e.target
@@ -14,7 +17,6 @@ export default class City extends Component {
         handleSubmit = async (e) => {
         e.preventDefault()
         let city = await httpClient.addNewPlace(this.state, `/api/users/${this.props.currentUser._id}/cities/${this.props.location.state.city}/places`)
-
         if (city){
             this.props.history.push('/profile')
         } else {
@@ -53,8 +55,8 @@ export default class City extends Component {
               </form>
             </div>
           </div>
-
         </div>
+        <Browse city={this.props} />
       </div>
     )
   }
