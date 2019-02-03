@@ -21,7 +21,7 @@ export default class Profile extends Component {
 
     handleDelete = (e) => {
       e.preventDefault()
-      axios.delete(`/api/users/${this.props.currentUser._id}/cities/${e.target.title}`)
+      axios.delete(`/api/users/${this.props.currentUser._id}/cities/${e.target.target}`)
       .then( res => {
         this.setState({ user:res.data.updatedUser })
       }
@@ -35,7 +35,7 @@ export default class Profile extends Component {
     handleDeletePlace = (e) => {
       e.preventDefault()
       debugger
-      axios.delete(`/api/users/${this.props.currentUser._id}/cities/${e.target.title}/places/${e.target.target}`)
+      axios.delete(`/api/users/${this.props.currentUser._id}/cities/${e.target.slot}/places/${e.target.target}`)
       .then( res => {
         debugger
         this.setState({ user:res.data.user })
@@ -49,9 +49,10 @@ export default class Profile extends Component {
 
     handleAddNewPlace = (e) => {
       e.preventDefault()
+      debugger
       this.props.history.push({
         pathname: '/profile/place',
-        state: { city: e.target.title }
+        state: { city: e.target.target, cityname:e.target.title  }
       })
     }
 
@@ -71,10 +72,10 @@ export default class Profile extends Component {
                 <div key={index} className="cityBox">
                   <div>
                     <h2 key={city._id}>{city.city}, {city.country}</h2>
-                    <form onSubmit={this.handleDelete} title={city._id}>
+                    <form onSubmit={this.handleDelete} target={city._id}>
                       <input className="btn" value="delete" type="submit"/>
                     </form>
-                    <form onSubmit={this.handleAddNewPlace} title={city._id}>
+                    <form onSubmit={this.handleAddNewPlace} title={city.city} target={city._id}>
                       <input className='btn' value='Add New Place' type='submit'/>
                     </form>
                   </div>
@@ -83,7 +84,7 @@ export default class Profile extends Component {
                       <div key={place._id}>
                         <h3> {place.title}</h3>
                         <p> {place.description}</p>
-                        <form onSubmit={this.handleDeletePlace} target={place._id} title={city._id}>
+                        <form onSubmit={this.handleDeletePlace} target={place._id} slot={city._id}>
                           <input className="btn" value="pd" type="submit"/>
                         </form>
                       </div>

@@ -14,16 +14,17 @@ export default class Place extends Component {
         this.setState({[name]:value})
     }
 
-        handleSubmit = async (e) => {
-        e.preventDefault()
-        let city = await httpClient.addNewPlace(this.state, `/api/users/${this.props.currentUser._id}/cities/${this.props.location.state.city}/places`)
-        if (city){
-            this.props.history.push('/profile')
-        } else {
-            console.log('we suck')
-        }
+    handleSubmit = async (e) => {
+      e.preventDefault()
+      let city = await httpClient.addNewPlace(this.state, `/api/users/${this.props.currentUser._id}/cities/${this.props.location.state.city}/places`)
+      if (city){
+          this.props.history.push('/profile')
+      } else {
+          console.log('we suck')
+      }
     }
   render () {
+    
       let { title, description } = this.state
     return (
       <div className='hero'>
@@ -56,7 +57,7 @@ export default class Place extends Component {
             </div>
           </div>
         </div>
-        <Browse city={this.props} />
+        <Browse city={this.props.location.state} />
       </div>
     )
   }

@@ -10,6 +10,7 @@ import Logout from './components/Logout'
 import Edit from './components/Edit'
 import City from './components/City'
 import Place from './components/Place'
+require('dotenv').config()
 
 class App extends Component {
 
