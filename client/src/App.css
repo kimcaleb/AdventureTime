@@ -72,3 +72,29 @@ a .nav {
     text-align: center;
 
 }
+
+.imgbox {
+    margin: 20px;
+  }
+  
+  .border {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+  }
+  
+  .imgcon {
+    border: 1px white solid;
+    width: 275px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    border: grey 1px solid;
+    margin: 20px;
+    text-align: center;
+    
+  }

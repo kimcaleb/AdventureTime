@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Geocode from 'react-geocode'
 import axios from 'axios'
+import Results from '../Results'
 require('dotenv').config()
 
 export default class Browse extends Component {
@@ -61,6 +62,8 @@ export default class Browse extends Component {
               </select>
               <input type='submit' value="Browse" />
             </form>
+            {(this.state.results.length > 0) ? (<Results results={this.state.results}/> ) : ( <div></div>)
+            }
       </div>
     )
   }
