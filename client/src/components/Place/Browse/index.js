@@ -7,7 +7,8 @@ export default class Browse extends Component {
   state = {
     cityname: this.props.city.cityname,
     lat: "",
-    lng: ""
+    lng: "",
+    typeOfPlace: ""
   }
   
   handleSubmit = (e) => {
@@ -25,12 +26,39 @@ export default class Browse extends Component {
     ) 
   }
 
+    handleChange = (e) => {
+      let { name, value } = e.target
+      this.setState({ [name]: value })    
+  }
   render () {
+    let {typeOfPlace} = this.state
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type='submit' value='Browse' />
-        </form>
+        <label>Type: </label>
+            <select
+              className='input'
+              type='text'
+              name='typeOfPlace'
+              onChange={this.handleChange}
+              value={typeOfPlace}>
+                  <option value="">All</option>
+                  <option value="amusement_park">Amusement Parks</option>
+                  <option value="art_gallery">Art Galleries</option>
+                  <option value="aquarium">Aquariums</option>
+                  <option value="bar">Bars</option>
+                  <option value="book_store">Book Stores</option>
+                  <option value="bowling_alley">Bowling Alleys</option>
+                  <option value="cafe">Cafes</option>
+                  <option value="campground">Campgrounds</option>
+                  <option value="casino">Casinos</option>
+                  <option value="movie_theatre">Movie Theatres</option>
+                  <option value="night_club">Night Clubs</option>
+                  <option value="restaurant">Restaurants</option>
+                  <option value="shopping_mall">Shopping Malls</option>
+                  <option value="spa">Spas</option>
+                  <option value="zoo">Zoo</option>
+              </select>
+              <input type='submit' />
       </div>
     )
   }
