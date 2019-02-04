@@ -71,7 +71,7 @@ httpClient.logout = function () {
 }
 
 //= ======================================
-// this are axios calls for cities
+// this is the axios call for cities
 //= ========================================///
 
 httpClient.addNewCity = async function (credentials, url) {
@@ -85,7 +85,7 @@ httpClient.addNewCity = async function (credentials, url) {
 }
 
 //= ======================================
-// this are axios calls for places
+// this is  the axios call for places
 //= ========================================///
 
 httpClient.addNewPlace = async function (credentials, url) {
@@ -93,6 +93,20 @@ httpClient.addNewPlace = async function (credentials, url) {
     let res = await this({ method: 'post', url, data: credentials })
     const { city } = res.data
     return city
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+//= ======================================
+// this is for handling pinging the google places api
+//= ========================================///
+
+httpClient.searchNearbyPlaces = async function (credentials, url) {
+  try {
+    let res = await this({ method: 'get', url, data: credentials })
+    const { results } = res.data
+    return results
   } catch (err) {
     console.log(err)
   }

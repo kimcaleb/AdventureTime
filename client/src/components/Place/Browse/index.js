@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Geocode from 'react-geocode'
+import Httpclient from '../../../utilities/httpClient'
 require('dotenv').config()
 
 export default class Browse extends Component {
@@ -8,10 +9,11 @@ export default class Browse extends Component {
     cityname: this.props.city.cityname,
     lat: "",
     lng: "",
-    typeOfPlace: ""
+    typeOfPlace: "",
+    results: []
   }
   
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault()
     Geocode.setApiKey(process.env.REACT_APP_API_KEY)
     Geocode.fromAddress(`${this.state.cityname}`).then(
@@ -23,7 +25,9 @@ export default class Browse extends Component {
       err => {
         console.error(err)
       }
-    ) 
+    )
+    let results = await Httpclient.searchNearbyPlaces(this.state, `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${process.env.REACT_APP_API_KEY}&location=${this.state.lat},${this.state.lng}&radius=50000&type=${this.state.typeOfPlace}`)
+    debugger
   }
 
     handleChange = (e) => {
@@ -34,6 +38,7 @@ export default class Browse extends Component {
     let {typeOfPlace} = this.state
     return (
       <div>
+        <form onSubmit={this.handleSubmit}>
         <label>Type: </label>
             <select
               className='input'
@@ -58,7 +63,8 @@ export default class Browse extends Component {
                   <option value="spa">Spas</option>
                   <option value="zoo">Zoo</option>
               </select>
-              <input type='submit' />
+              <input type='submit' value="Browse" />
+            </form>
       </div>
     )
   }
