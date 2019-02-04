@@ -1,33 +1,29 @@
 import React, { Component } from 'react'
 import Geocode from 'react-geocode'
-import Httpclient from '../../../utilities/httpClient'
+import axios from 'axios'
 require('dotenv').config()
 
 export default class Browse extends Component {
 
   state = {
     cityname: this.props.city.cityname,
-    lat: "",
-    lng: "",
     typeOfPlace: "",
     results: []
   }
   
   handleSubmit = async (e) => {
     e.preventDefault()
-    Geocode.setApiKey(process.env.REACT_APP_API_KEY)
-    Geocode.fromAddress(`${this.state.cityname}`).then(
-      res => {
-        const {lat,lng} = res.results[0].geometry.location
-        this.setState({lat,lng})
-        console.log(this.state.lat,this.state.lng)
-      },
-      err => {
-        console.error(err)
-      }
-    )
-    let results = await Httpclient.searchNearbyPlaces(this.state, `https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${process.env.REACT_APP_API_KEY}&location=${this.state.lat},${this.state.lng}&radius=50000&type=${this.state.typeOfPlace}`)
-    debugger
+    Geocode.setApiKey(process.env.REACT_APP_API_KEY);
+    let res = await Geocode.fromAddress(`${this.state.cityname}`);
+    const {lat,lng} = res.results[0].geometry.location;
+    try {
+      let { data: {data : { results } } } = await axios.get(`/browse?lat=${lat}&lng=${lng}&type=${this.state.typeOfPlace}`)
+      this.setState({results})
+    } catch(err) {
+      console.log(err);
+    }
+  
+    
   }
 
     handleChange = (e) => {

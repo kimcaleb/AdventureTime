@@ -102,15 +102,7 @@ httpClient.addNewPlace = async function (credentials, url) {
 // this is for handling pinging the google places api
 //= ========================================///
 
-httpClient.searchNearbyPlaces = async function (credentials, url) {
-  try {
-    let res = await this({ method: 'get', url, data: credentials })
-    const { results } = res.data
-    return results
-  } catch (err) {
-    console.log(err)
-  }
-}
+
 // During initial app load, attpempt to set a localStorage stored token
 // as a default header for all api requests.
 httpClient.defaults.headers.common.token = httpClient.getToken()
