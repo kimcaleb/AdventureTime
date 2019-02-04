@@ -4,8 +4,8 @@ import Browse from './Browse'
 
 export default class Place extends Component {
     state= {
-        title: "",
-        description: "",
+        name: "",
+        types: "",
         city: null
 
     }
@@ -25,7 +25,7 @@ export default class Place extends Component {
     }
   render () {
     
-      let { title, description } = this.state
+      let { name, types } = this.state
     return (
       <div className='hero'>
         <div className='login'>
@@ -38,19 +38,19 @@ export default class Place extends Component {
                 <input
                 className='input'
                   type='text'
-                  name='title'
+                  name='name'
                   placeholder='Los Angeles...'
                   onChange={this.handleChange}
-                  value={title}
+                  value={name}
                 />
                 <label className='label'>description</label>
                 <input
                 className='input'
                   type='text'
-                  name='description'
+                  name='types'
                   placeholder='United States...'
                   onChange={this.handleChange}
-                  value={description}
+                  value={types}
                 />
                 <input type='submit' />
               </form>

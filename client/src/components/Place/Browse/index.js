@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Geocode from 'react-geocode'
 import axios from 'axios'
-import Results from '../Results'
+import Results from './Results'
 require('dotenv').config()
 
 export default class Browse extends Component {
@@ -20,6 +20,7 @@ export default class Browse extends Component {
     try {
       let { data: {data : { results } } } = await axios.get(`/browse?lat=${lat}&lng=${lng}&type=${this.state.typeOfPlace}`)
       this.setState({results})
+      debugger
     } catch(err) {
       console.log(err);
     }
@@ -32,6 +33,7 @@ export default class Browse extends Component {
       this.setState({ [name]: value })    
   }
   render () {
+    debugger
     let {typeOfPlace} = this.state
     return (
       <div>
@@ -62,7 +64,7 @@ export default class Browse extends Component {
               </select>
               <input type='submit' value="Browse" />
             </form>
-            {(this.state.results.length > 0) ? (<Results results={this.state.results}/> ) : ( <div></div>)
+            {(this.state.results.length >0) ? (<Results city={this.props.city.city} results={this.state.results}/> ) : ( <div></div>)
             }
       </div>
     )

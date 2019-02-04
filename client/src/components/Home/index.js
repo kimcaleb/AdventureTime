@@ -82,8 +82,8 @@ export default class Profile extends Component {
                 {city.places.map((place, index) => {
                     return (
                       <div key={place._id}>
-                        <h3> {place.title}</h3>
-                        <p> {place.description}</p>
+                        <h3> {place.name}</h3>
+                        <p> {place.types}</p>
                         <form onSubmit={this.handleDeletePlace} target={place._id} slot={city._id}>
                           <input className="btn" value="pd" type="submit"/>
                         </form>
