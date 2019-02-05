@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import './home.css'
+
 
 export default class Profile extends Component {
    state = {
