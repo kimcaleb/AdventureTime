@@ -1,17 +1,19 @@
 
 .placeHeader {
     display: flex;
-    justify-content: space-around;
-    align-items: center !important;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 3px white solid;
-    width: 100%
+    width: 100%;
+    padding: 0 25px;
 }
 .placeList {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center !important;
+    justify-content: space-between;
+    align-items: center;
     border: 1px white solid;
-    width: 100%
+    width: 100%;
+    padding: 15px;
 }
 .placeList:hover {
     background-color: rgba(0,0,0,0.6);
@@ -29,3 +31,21 @@
     margin-bottom:3%;
 }
 
+.lg-button {
+    font-size: 0.5em;
+    margin: 20px;
+}
+
+.two-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-danger {
+    height:25px;
+    border-radius: 10px;
+}
+.icon {
+    height: 30px;
+    width: 30px;
+}

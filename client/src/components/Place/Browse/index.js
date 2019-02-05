@@ -34,7 +34,7 @@ export default class Browse extends Component {
     return (
       <div>
   <div className="browsebox">
-      <label>Browse by Type of Place:</label>
+      <label>Browse nearby places in {this.props.city.cityname}:</label>
       <div className="browse-form">
       <form onSubmit={this.handleSubmit}>
           <select
@@ -43,7 +43,7 @@ export default class Browse extends Component {
             name='typeOfPlace'
             onChange={this.handleChange}
             value={typeOfPlace}>
-              <option>Choose a Type of place</option>
+              <option>Choose by type</option>
               <option value="amusement_park">Amusement Parks</option>
               <option value="art_gallery">Art Galleries</option>
               <option value="aquarium">Aquariums</option>
@@ -60,7 +60,7 @@ export default class Browse extends Component {
               <option value="spa">Spas</option>
               <option value="zoo">Zoo</option>
           </select>
-        <input type='submit' value="Browse" />
+        <input className="btn" type='submit' value="Browse" />
       </form>
       </div>
     </div>

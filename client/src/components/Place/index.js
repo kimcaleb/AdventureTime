@@ -25,8 +25,7 @@ export default class Place extends Component {
       }
     }
   render () {
-    debugger
-      let { name, types } = this.state
+      let { name, types2, vicinity } = this.state
     return (
 <div className='hero'>
   <div className='login'>
@@ -34,25 +33,34 @@ export default class Place extends Component {
     <h3>Where do you want to go in {this.props.location.state.cityname}?</h3>
     <div className='placeBox'>
         <form onSubmit={this.handleSubmit} className='form'>
-          <label className='label'>Add a Place You Want To Go Here</label>
+          <label className='label'>Name of Place</label>
           <input
           className='input'
             type='text'
             name='name'
-            placeholder='Los Angeles...'
+            placeholder='Name of Place'
             onChange={this.handleChange}
             value={name}
           />
-          <label className='label'>description</label>
+          <label className='label'>Street Address</label>
           <input
           className='input'
             type='text'
-            name='types'
-            placeholder='United States...'
+            name='vicinity'
+            placeholder='Where is it located?'
             onChange={this.handleChange}
-            value={types}
+            value={vicinity}
           />
-          <input type='submit' />
+           <label className='label'>What kind of place is it?</label>
+          <input
+          className='input'
+            type='text'
+            name='types2'
+            placeholder='What kind of place is it? E.G. "Cafe"'
+            onChange={this.handleChange}
+            value={types2}
+          />
+          <input className="btn" type='submit' />
         </form>
     </div>
       <div>

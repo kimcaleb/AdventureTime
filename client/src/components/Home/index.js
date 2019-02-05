@@ -74,12 +74,14 @@ export default class Profile extends Component {
                 <div key={index} className="cityBox">
                   <div className="placeHeader">
                     <h2 className="cityTitle" key={city._id}>{city.city}, {city.country}</h2>
+                    <div className='two-btn'>
                     <form onSubmit={this.handleDelete} target={city._id}>
                       <input className="btn" value="delete" type="submit"/>
                     </form>
                     <form onSubmit={this.handleAddNewPlace} title={city.city} target={city._id}>
-                      <input className='btn' value='Add New Place' type='submit'/>
+                      <input className='btn lg-button' value='Add A Place' type='submit'/>
                     </form>
+                    </div>
                   </div>
                 {city.places.map((place, index) => {
                     return (
@@ -89,9 +91,9 @@ export default class Profile extends Component {
                         <p><a href={`https://www.google.com/maps/place/${place.vicinity}`} target="_blank" rel="noopener noreferrer">{place.vicinity}</a></p>
                         <p>{place.types2}</p>
                         <p>{place.rating}/5, Total Reviews:{place.user_ratings_total}</p>
-                        <img src={`${place.icon}`} alt="not available" />
+                        <img  className='icon' src={`${place.icon}`} alt="not available" />
                         <form onSubmit={this.handleDeletePlace} target={place._id} slot={city._id}>
-                          <input className="btn" value="pd" type="submit"/>
+                          <input className=" btn-danger lg-button" value="Delete Place" type="submit"/>
                         </form>
                       </div>
                )
