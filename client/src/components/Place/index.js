@@ -60,7 +60,7 @@ export default class Place extends Component {
             onChange={this.handleChange}
             value={types2}
           />
-          <input className="btn" type='submit' />
+          <input id="submitBtnForAddingPlace" className="btn" type='submit' />
         </form>
     </div>
       <div>

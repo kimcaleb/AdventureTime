@@ -82,11 +82,11 @@ export default class Edit extends Component {
                 <option value='New York City'>New York City</option>
                 <option value='Miami'>Miami</option>
               </select>
-              <input type='submit' />
+              <input type='submit' className="btn" id="submitBtnForBrowse" />
             </form>
            
             <form onSubmit={this.handleDelete}>
-              <input type="submit" value="Delete Profile" />
+              <input type="submit" value="Delete Profile" className="btn lg-button" id="submitBtnForBrowse" />
             </form>
           </div>
         </div>

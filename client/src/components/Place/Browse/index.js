@@ -60,7 +60,7 @@ export default class Browse extends Component {
               <option value="spa">Spas</option>
               <option value="zoo">Zoo</option>
           </select>
-        <input className="btn" type='submit' value="Browse" />
+        <input id="submitBtnForBrowse"className="btn" type='submit' value="Browse" />
       </form>
       </div>
     </div>

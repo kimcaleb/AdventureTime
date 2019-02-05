@@ -28,7 +28,7 @@ export default class Results extends Component {
                 <p>{result.types[0]}, {result.types[1]}</p>
                 <div className="results-bottom">
                 <img src={`${result.icon}`} alt="Not Available" />
-                <input className='btn' value='Add Place' type='submit' />
+                <input id="submitBtnForAddingPlaceToList"className='btn' value='Add Place' type='submit' />
                 </div>
               </form>
             </div>
