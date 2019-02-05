@@ -10,7 +10,7 @@ import Logout from './components/Logout'
 import Edit from './components/Edit'
 import City from './components/City'
 import Place from './components/Place'
-require('dotenv').config()
+
 
 class App extends Component {
 
@@ -26,7 +26,6 @@ class App extends Component {
     httpClient.logout()
     this.setState({ currentUser: null })
   }
-
 
   render() {
     return (
@@ -44,7 +43,7 @@ class App extends Component {
 						return <Signup {...props} onSignupSuccess={this.onAuthSuccess} />
 					}}/>
           <Route exact path='/profile/edit' render={(props) => {
-						return <Edit {...props} currentUser={this.state.currentUser} onLoginSuccess={this.onAuthSuccess} />
+						return <Edit {...props} currentUser={this.state.currentUser} onLoginSuccess={this.onAuthSuccess} logOut={this.logOut} />
 					}}/>
           <Route exact path='/profile/city' render={(props) => {
           return <City {...props} currentUser={this.state.currentUser} /> }} />

@@ -28,11 +28,14 @@ export default class Edit extends Component {
         e.preventDefault()
         let user = await httpClient.deleteUser(this.state,`/api/users/${this.props.currentUser._id}`)
         if (user) {
+          debugger
           this.props.history.push('/')
+          this.props.logOut()
+    
         }
     }
   render () {
-      
+
     let { name, email, password, PlaceName } = this.state
     return (
       <div className="hero">

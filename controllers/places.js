@@ -40,7 +40,12 @@ module.exports = {
       if (city === null) {
         return console.log('no city found')
       }
-      city.places.splice(city.places.indexOf(place_id), 1)
+      let {places} = city
+      for (let i=0; i<places.length; i++) {
+        if (places[i]._id == place_id) {
+          places.splice(i,1);
+        }
+      }
       city.save(err => {
         if (err) console.log('could not delete place')
         user.save(err => {
