@@ -6,7 +6,7 @@ const placeSchema = new mongoose.Schema({
   types2: { type: String },
   icon: { type: String },
   rating: { type: String },
-  userRatingsTotal: { type: String }
+  user_ratings_total: { type: String }
 }, { timestamps: true })
 
 const citySchema = new mongoose.Schema({

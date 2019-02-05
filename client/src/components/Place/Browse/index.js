@@ -20,12 +20,9 @@ export default class Browse extends Component {
     try {
       let { data: {data : { results } } } = await axios.get(`/browse?lat=${lat}&lng=${lng}&type=${this.state.typeOfPlace}`)
       this.setState({results})
-      debugger
     } catch(err) {
       console.log(err);
     }
-  
-    
   }
 
   handleChange = (e) => {
@@ -35,7 +32,7 @@ export default class Browse extends Component {
   render () {
     let {typeOfPlace} = this.state
     return (
-      <div>
+      <div className='column column-50'>
         <form onSubmit={this.handleSubmit}>
         <label>Type: </label>
             <select

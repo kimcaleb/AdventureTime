@@ -24,16 +24,17 @@ export default class Place extends Component {
       }
     }
   render () {
+    debugger
       let { name, types } = this.state
     return (
       <div className='hero'>
         <div className='login'>
           <h1>Adventure Time</h1>
-          <h3>What are your points of interest?</h3>
+          <h3>Where do you want to go in {this.props.location.state.cityname}?</h3>
           <div className='row'>
-            <div className='column column-50 column-offset-25'>
+            <div className='column column-50'>
               <form onSubmit={this.handleSubmit} className='form'>
-                <label className='label'>title</label>
+                <label className='label'>Add a Place You Want To Go Here</label>
                 <input
                 className='input'
                   type='text'
@@ -54,9 +55,9 @@ export default class Place extends Component {
                 <input type='submit' />
               </form>
             </div>
+        <Browse city={this.props.location.state} currentUserId={this.props.currentUser._id} history={this.props.history}/>
           </div>
         </div>
-        <Browse city={this.props.location.state} currentUserId={this.props.currentUser._id} history={this.props.history}/>
       </div>
     )
   }

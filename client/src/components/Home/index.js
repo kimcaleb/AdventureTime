@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from "axios"
+import './home.css'
 
 export default class Profile extends Component {
    state = {
@@ -64,14 +65,14 @@ export default class Profile extends Component {
         <div className="hero">
           <div>
             <h1>Adventure Time</h1>
-            <div>
-            <Link className="addCity" to='/profile/city'>Add A City Here!</Link>
+            <div className="addCity">
+            <Link className="addCityLink" to='/profile/city'>Add A City Here!</Link>
             </div>
             {user.cities.map((city, index) => {
               return (
                 <div key={index} className="cityBox">
-                  <div>
-                    <h2 key={city._id}>{city.city}, {city.country}</h2>
+                  <div className="placeHeader">
+                    <h2 className="cityTitle" key={city._id}>{city.city}, {city.country}</h2>
                     <form onSubmit={this.handleDelete} target={city._id}>
                       <input className="btn" value="delete" type="submit"/>
                     </form>
@@ -81,9 +82,12 @@ export default class Profile extends Component {
                   </div>
                 {city.places.map((place, index) => {
                     return (
-                      <div key={place._id}>
-                        <h3> {place.name}</h3>
+                      <div className="placeList" key={place._id}>
+                        <h3 className="placeTitle"> {place.name}</h3>
                         <p> {place.types}</p>
+                        <p>{place.vicinity}</p>
+                        <p>{place.rating}/5, Total Reviews:{place.user_ratings_total}</p>
+                        <img src={`${place.icon}`} alt="not available" />
                         <form onSubmit={this.handleDeletePlace} target={place._id} slot={city._id}>
                           <input className="btn" value="pd" type="submit"/>
                         </form>

@@ -35,7 +35,8 @@ export default class Edit extends Component {
       
     let { name, email, password, PlaceName } = this.state
     return (
-      <div>
+      <div className="hero">
+      <div className="login">
         <h1>Adventure Time</h1>
         <h3>Edit Profile</h3>
         <div className='row'>
@@ -43,6 +44,7 @@ export default class Edit extends Component {
             <form onSubmit={this.handleSubmit}>
               <label>Name: </label>
               <input
+                className="input"
                 type='text'
                 name='name'
                 onChange={this.handleChange}
@@ -50,6 +52,7 @@ export default class Edit extends Component {
               />
               <label>Email: </label>
               <input
+                className="input"
                 type='text'
                 name='email'
                 onChange={this.handleChange}
@@ -57,6 +60,7 @@ export default class Edit extends Component {
               />
               <label>New Password: </label>
               <input
+                className="input"
                 type='password'
                 name='password'
                 placeholder='Secret Password...'
@@ -65,6 +69,7 @@ export default class Edit extends Component {
               />
               <label>City: </label>
               <select
+                className="input"
                 type='text'
                 name='PlaceName'
                 onChange={this.handleChange}
@@ -81,6 +86,7 @@ export default class Edit extends Component {
               <input type="submit" value="Delete Profile" />
             </form>
           </div>
+        </div>
         </div>
       </div>
 

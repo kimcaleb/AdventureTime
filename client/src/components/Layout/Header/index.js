@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom'
 export default ({ currentUser }) => {
   return (<nav className='nav clearfix'>
     <div className='float-left'>
-      <span className='nav-link'>JWT</span>
-      <Link className='nav-link' to='/'>Home</Link>
-      <Link className='nav-link' to='/vip'>VIP</Link>
+      <span className='nav-link'>Adventure Time </span>
     </div>
     <div className='float-right'>
       {currentUser
@@ -19,6 +17,7 @@ export default ({ currentUser }) => {
         )
         : (
           <span>
+            <Link className='nav-link' to='/'>LogIn</Link>
             <Link className='nav-link' to='/signup'>Signup</Link>
           </span>
         )
