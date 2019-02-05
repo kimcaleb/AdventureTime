@@ -56,6 +56,7 @@ h3 {
 }
 .form {
     width: 40%;
+    
 }
 .input:focus {
     border: none;
@@ -197,3 +198,30 @@ a:hover {
     width:40%
 }
 
+
+path {
+    fill: transparent;
+}
+
+text {
+    color: rgba(255,255,255,0.1);
+    opacity: 0.55;
+    margin-top: 1em !important;
+    font-family: 'Bungee', cursive;
+    font-size: 2.75em !important;
+    text-align: center;
+    color: black;
+}
+textPath {
+    color:white
+}
+
+svg {
+   margin-top:60px;
+   margin-bottom:-1000px;
+   width:80%;
+}
+
+.curveAdventure {
+    height:300px;
+}

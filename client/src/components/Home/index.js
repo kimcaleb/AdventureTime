@@ -65,9 +65,9 @@ export default class Profile extends Component {
         return (
         <div className="hero">
           <div>
-            <h1>Adventure Time</h1>
+            <h1 className="adventureTime">Adventure Time</h1>
             <div className="addCity">
-            <p><Link className="addCityLink" to='/profile/city'>Add A City!</Link></p>
+            <Link className="addCityLink" to='/profile/city'>Add A City!</Link>
             </div>
             {user.cities.map((city, index) => {
               return (

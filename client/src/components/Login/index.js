@@ -26,11 +26,19 @@ export default class Login extends Component {
         let { email, password } = this.state;
         return (
             <div className="hero">
-            <div className="login">
-                <h1>Adventure Time</h1>
+                <div className="login">
+                <svg viewBox="0 0 500 500">
+                        <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />                   
+                        <text width="500">
+                            <textPath href="#curve">
+                                Adventure Time
+                            </textPath>
+                        </text>
+                </svg>  
+           
                 <h3>Login</h3>
                     <div className="form">
-                        <form onSubmit={this.handleSubmit} >
+                        <form onSubmit={this.handleSubmit} > 
                             <label className="label">Email</label>
                             <input
                             className='input'

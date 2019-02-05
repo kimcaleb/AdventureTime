@@ -11,9 +11,9 @@ export default ({ currentUser }) => {
         {currentUser
           ? (
             <span className='navtext'>
-              <Link className='nav-link' to='/profile'>Profile</Link>
+              <Link className='nav-link' to='/profile'>Home</Link>
+              <Link className='nav-link' to='/profile/edit'>Edit Profile</Link>
               <Link className='nav-link' to='/logout'>Logout</Link>
-              <Link className='nav-link' to='/profile/edit'>Edit</Link>
             </span>
           )
           : (
