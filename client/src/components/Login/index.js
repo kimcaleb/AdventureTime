@@ -29,9 +29,8 @@ export default class Login extends Component {
             <div className="login">
                 <h1>Adventure Time</h1>
                 <h3>Login</h3>
-                <div className="row">
-                    <div className="column column-50 column-offset-25">
-                        <form onSubmit={this.handleSubmit} className="form">
+                    <div className="form">
+                        <form onSubmit={this.handleSubmit} >
                             <label className="label">Email</label>
                             <input
                             className='input'
@@ -50,10 +49,9 @@ export default class Login extends Component {
                                 onChange={this.handleChange}
                                 value={password}
                                 />
-                            <input type="submit"/>
+                            <input className="btn" type="submit"/>
                         </form>
                     </div>
-                </div>
             </div>
         </div>          
         )

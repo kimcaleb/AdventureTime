@@ -67,7 +67,7 @@ export default class Profile extends Component {
           <div>
             <h1>Adventure Time</h1>
             <div className="addCity">
-            <p><Link className="addCityLink" to='/profile/city'>Add A City Here!</Link></p>
+            <p><Link className="addCityLink" to='/profile/city'>Add A City!</Link></p>
             </div>
             {user.cities.map((city, index) => {
               return (
@@ -84,7 +84,7 @@ export default class Profile extends Component {
                 {city.places.map((place, index) => {
                     return (
                       <div className="placeList" key={place._id}>
-                        <h3 className="placeTitle"> {place.name}</h3>
+                        <h3 className="placeTitle"><a href={`https://www.google.com/search?&q="${place.name}"`} target="_blank" rel="noopener noreferrer"> {place.name}</a></h3>
                         <p> {place.types}</p>
                         <p><a href={`https://www.google.com/maps/place/${place.vicinity}`} target="_blank" rel="noopener noreferrer">{place.vicinity}</a></p>
                         <p>{place.types2}</p>

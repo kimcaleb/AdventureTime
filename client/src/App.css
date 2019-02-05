@@ -1,4 +1,5 @@
 /* font-family: 'Bungee', cursive; */
+
 h1 {
     color: rgba(255,255,255,0.1);
     opacity: 0.5;
@@ -7,10 +8,11 @@ h1 {
     font-size: 5em !important;
     text-align: center;
     color: black;
+    
 }
 h3 {
     text-align: center;
-    color: white !important;
+    color: white;
 }
 .hero {
     z-index: 0;
@@ -29,6 +31,7 @@ h3 {
     justify-content: center;
     align-content: center;
     
+    
 }
 .addCityLink {
     width: 200px;
@@ -38,8 +41,12 @@ h3 {
     flex-direction: column;
     font-size: 20px;
     font-family:'Bungee', cursive; 
-    background-color: rgba(0,0,0,0.5);
-    color: antiquewhite !important; 
+    color: antiquewhite;
+    border-radius: 50%;
+    height: 40px;
+    border: 2px white solid;
+    background-color: rgba(0,0,0,0.4);;
+    
 }
 .login {
     display: flex;
@@ -48,13 +55,37 @@ h3 {
     flex-direction: column;  
 }
 .form {
+    width: 40%;
+}
+.input:focus {
+    border: none;
+    border-radius: 15px;
+}
+.input {
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 2.5em;
+    border-radius: 15px;
+    color: white;
+    padding-left: 20px;
+}
+form {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;   
+    flex-direction: column;
+     
 }
 label {
     color: black;
+}
+.navtext {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.navtext:hover {
+    text-decoration: underline;
 }
 .nav {
     z-index: 1;
@@ -64,6 +95,10 @@ label {
     color: rgba(255,255,255,0.9);
     opacity: 0.9;
     width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .nav-link {
     opacity: 0.9;
@@ -71,15 +106,13 @@ label {
     margin: 0 15px;
     color: rgba(255,255,255,0.5);
     text-decoration: none;
+    padding: 2px;
 }
 a {
     color: white !important;
 }
 a:hover {
-    border-bottom: 2px solid white;
-}
-.input {
-    background-color: beige !important;
+    text-decoration: underline;
 }
 .cityBox {
     display: flex;
@@ -94,17 +127,19 @@ a:hover {
     margin-bottom: 100px;
 }
 .btn {
-    width: 10px;
-    height: 10px;
-    background-color: beige !important;
-    color: black !important;
+    width: 90px;
+    height: 40px;
+    background-color: white;
+    color: black;
     text-align: center;
+    font-family: 'Bungee', cursive;
+    border-radius: 5%;
 
 }
 
 
   
-  .border {
+.border {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -116,7 +151,6 @@ a:hover {
 .imgcon {
     margin-bottom: 20px;
     background-color: rgba(0,0,0,0.4);
-    border: 1px white solid;
     width: 275px;
     height: 350px;
     display: flex;
@@ -134,6 +168,7 @@ a:hover {
   }
   p {
       color: white;
+      margin: 5px;
   }
   .resultsbox{
       display:flex;
@@ -146,11 +181,17 @@ a:hover {
   }
 .results-bottom {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
 .results-title {
     background-color: rgba(0,0,0,0.4);
+    width:100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .browse-form {
     width:40%
