@@ -12,7 +12,9 @@
     border: 1px white solid;
     width: 100%
 }
-
+.placeList:hover {
+    background-color: rgba(0,0,0,0.6);
+}
 .placeTitle {
     color: white !important;
 }

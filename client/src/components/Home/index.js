@@ -85,7 +85,8 @@ export default class Profile extends Component {
                       <div className="placeList" key={place._id}>
                         <h3 className="placeTitle"> {place.name}</h3>
                         <p> {place.types}</p>
-                        <p>{place.vicinity}</p>
+                        <p><a href={`https://www.google.com/maps/place/${place.vicinity}`} target="_blank">{place.vicinity}</a></p>
+                        <p>{place.types2}</p>
                         <p>{place.rating}/5, Total Reviews:{place.user_ratings_total}</p>
                         <img src={`${place.icon}`} alt="not available" />
                         <form onSubmit={this.handleDeletePlace} target={place._id} slot={city._id}>
