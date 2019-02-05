@@ -6,7 +6,8 @@ export default class Place extends Component {
     state= {
         name: "",
         types: "",
-        city: null
+        city: null,
+        results:[]
 
     }
     handleChange = (e) => {
@@ -27,38 +28,38 @@ export default class Place extends Component {
     debugger
       let { name, types } = this.state
     return (
-      <div className='hero'>
-        <div className='login'>
-          <h1>Adventure Time</h1>
-          <h3>Where do you want to go in {this.props.location.state.cityname}?</h3>
-          <div className='row'>
-            <div className='column column-50'>
-              <form onSubmit={this.handleSubmit} className='form'>
-                <label className='label'>Add a Place You Want To Go Here</label>
-                <input
-                className='input'
-                  type='text'
-                  name='name'
-                  placeholder='Los Angeles...'
-                  onChange={this.handleChange}
-                  value={name}
-                />
-                <label className='label'>description</label>
-                <input
-                className='input'
-                  type='text'
-                  name='types'
-                  placeholder='United States...'
-                  onChange={this.handleChange}
-                  value={types}
-                />
-                <input type='submit' />
-              </form>
-            </div>
-        <Browse city={this.props.location.state} currentUserId={this.props.currentUser._id} history={this.props.history}/>
-          </div>
-        </div>
+<div className='hero'>
+  <div className='login'>
+    <h1>Adventure Time</h1>
+    <h3>Where do you want to go in {this.props.location.state.cityname}?</h3>
+    <div className='placeBox'>
+        <form onSubmit={this.handleSubmit} className='form'>
+          <label className='label'>Add a Place You Want To Go Here</label>
+          <input
+          className='input'
+            type='text'
+            name='name'
+            placeholder='Los Angeles...'
+            onChange={this.handleChange}
+            value={name}
+          />
+          <label className='label'>description</label>
+          <input
+          className='input'
+            type='text'
+            name='types'
+            placeholder='United States...'
+            onChange={this.handleChange}
+            value={types}
+          />
+          <input type='submit' />
+        </form>
+    </div>
+      <div>
+      <Browse city={this.props.location.state} currentUserId={this.props.currentUser._id} history={this.props.history}/>
       </div>
+  </div>
+</div>
     )
   }
 }

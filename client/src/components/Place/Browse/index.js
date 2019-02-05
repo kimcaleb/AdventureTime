@@ -32,37 +32,43 @@ export default class Browse extends Component {
   render () {
     let {typeOfPlace} = this.state
     return (
-      <div className='column column-50'>
-        <form onSubmit={this.handleSubmit}>
-        <label>Type: </label>
-            <select
-              className='input'
-              type='text'
-              name='typeOfPlace'
-              onChange={this.handleChange}
-              value={typeOfPlace}>
-                  <option value="">All</option>
-                  <option value="amusement_park">Amusement Parks</option>
-                  <option value="art_gallery">Art Galleries</option>
-                  <option value="aquarium">Aquariums</option>
-                  <option value="bar">Bars</option>
-                  <option value="book_store">Book Stores</option>
-                  <option value="bowling_alley">Bowling Alleys</option>
-                  <option value="cafe">Cafes</option>
-                  <option value="campground">Campgrounds</option>
-                  <option value="casino">Casinos</option>
-                  <option value="movie_theatre">Movie Theatres</option>
-                  <option value="night_club">Night Clubs</option>
-                  <option value="restaurant">Restaurants</option>
-                  <option value="shopping_mall">Shopping Malls</option>
-                  <option value="spa">Spas</option>
-                  <option value="zoo">Zoo</option>
-              </select>
-              <input type='submit' value="Browse" />
-            </form>
-            {(this.state.results.length > 0) ? (<Results city={this.props.city.city} currentUserId={this.props.currentUserId} results={this.state.results} history={this.props.history}/> ) : ( <div></div>)
-            }
+      <div>
+  <div className="browsebox">
+      <label>Browse by Type of Place:</label>
+      <div className="browse-form">
+      <form onSubmit={this.handleSubmit}>
+          <select
+            className='input'
+            type='text'
+            name='typeOfPlace'
+            onChange={this.handleChange}
+            value={typeOfPlace}>
+              <option>Choose a Type of place</option>
+              <option value="amusement_park">Amusement Parks</option>
+              <option value="art_gallery">Art Galleries</option>
+              <option value="aquarium">Aquariums</option>
+              <option value="bar">Bars</option>
+              <option value="book_store">Book Stores</option>
+              <option value="bowling_alley">Bowling Alleys</option>
+              <option value="cafe">Cafes</option>
+              <option value="campground">Campgrounds</option>
+              <option value="casino">Casinos</option>
+              <option value="movie_theatre">Movie Theatres</option>
+              <option value="night_club">Night Clubs</option>
+              <option value="restaurant">Restaurants</option>
+              <option value="shopping_mall">Shopping Malls</option>
+              <option value="spa">Spas</option>
+              <option value="zoo">Zoo</option>
+          </select>
+        <input type='submit' value="Browse" />
+      </form>
       </div>
+    </div>
+    <div className="resultsbox">
+      {(this.state.results.length > 0) ? (<Results city={this.props.city.city} currentUserId={this.props.currentUserId} results={this.state.results} history={this.props.history}/> ) : ( <div></div>)
+      }
+    </div>
+  </div>
     )
   }
 }

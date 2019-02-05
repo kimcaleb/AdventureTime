@@ -1,6 +1,7 @@
 /* font-family: 'Bungee', cursive; */
 h1 {
-    color: white !important;
+    color: rgba(255,255,255,0.1);
+    opacity: 0.5;
     margin-top: 1em !important;
     font-family: 'Bungee', cursive;
     font-size: 5em !important;
@@ -12,11 +13,16 @@ h3 {
     color: white !important;
 }
 .hero {
+    z-index: 0;
     position: absolute;
-    background: url("https://i.imgur.com/g8YE7KD.jpg") no-repeat center fixed; 
+    background: url("https://i.imgur.com/g8YE7KD.jpg") repeat center !important;
     background-size: cover;
-    height: 1000px;
     width: 100%;
+    top:0x; bottom: 0px;
+    height: 100%;
+    background-repeat: repeat;
+    position: absolute;
+    overflow-x: scroll;
 }
 .addCity {
     display: flex;
@@ -51,17 +57,24 @@ label {
     color: black;
 }
 .nav {
+    z-index: 1;
+    position: fixed;
+    top: 0px;
     background-color: black;
-    color: white;
+    color: rgba(255,255,255,0.9);
+    opacity: 0.9;
+    width: 100%;
 }
 .nav-link {
+    opacity: 0.9;
     font-family: 'Bungee', cursive;
     margin: 0 15px;
-    color: white !important;
-}
-a .nav {
-    color: white !important;
+    color: rgba(255,255,255,0.5);
     text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 2px solid white;
 }
 .input {
     background-color: beige !important;
@@ -75,6 +88,8 @@ a .nav {
     border-radius: 1%;
     color: white;
     margin: 10px 50px;
+    border: 1px white solid;
+    margin-bottom: 100px;
 }
 .btn {
     width: 10px;
@@ -85,28 +100,56 @@ a .nav {
 
 }
 
-.imgbox {
-    margin: 20px;
-  }
+
   
   .border {
-    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     
-  }
-  
-  .imgcon {
+}
+
+.imgcon {
+    margin-bottom: 20px;
+    background-color: rgba(0,0,0,0.4);
     border: 1px white solid;
     width: 275px;
-    height: 400px;
+    height: 350px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     border: grey 1px solid;
-    margin: 20px;
     text-align: center;
-    
   }
+  .imgcon:hover {
+    background-color: rgba(0,0,0,0.6);
+
+  }
+
+ label {
+      color: white;
+  }
+  p {
+      color: white;
+  }
+  .resultsbox{
+      display:flex;
+  }
+  .placeBox {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-content: center;
+  }
+.results-bottom {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.results-title {
+    background-color: rgba(0,0,0,0.4);
+}
+.browse-form {
+    width:40%
+}
