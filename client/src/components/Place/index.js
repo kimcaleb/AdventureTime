@@ -20,11 +20,10 @@ export default class Place extends Component {
       if (city){
           this.props.history.push('/profile')
       } else {
-          console.log('we suck')
+          console.log('No Place Added, Error Found')
       }
     }
   render () {
-    
       let { name, types } = this.state
     return (
       <div className='hero'>
@@ -57,7 +56,7 @@ export default class Place extends Component {
             </div>
           </div>
         </div>
-        <Browse city={this.props.location.state} />
+        <Browse city={this.props.location.state} currentUserId={this.props.currentUser._id} history={this.props.history}/>
       </div>
     )
   }

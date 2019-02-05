@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt-nodejs')
 const placeSchema = new mongoose.Schema({
   name: { type: String, require: true },
   vicinity: { type: String },
-  types: { type: String },
+  types2: { type: String },
   icon: { type: String },
   rating: { type: String },
   userRatingsTotal: { type: String }

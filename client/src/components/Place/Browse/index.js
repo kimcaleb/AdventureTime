@@ -28,12 +28,11 @@ export default class Browse extends Component {
     
   }
 
-    handleChange = (e) => {
-      let { name, value } = e.target
-      this.setState({ [name]: value })    
+  handleChange = (e) => {
+    let { name, value } = e.target
+    this.setState({ [name]: value })    
   }
   render () {
-    debugger
     let {typeOfPlace} = this.state
     return (
       <div>
@@ -64,7 +63,7 @@ export default class Browse extends Component {
               </select>
               <input type='submit' value="Browse" />
             </form>
-            {(this.state.results.length >0) ? (<Results city={this.props.city.city} results={this.state.results}/> ) : ( <div></div>)
+            {(this.state.results.length > 0) ? (<Results city={this.props.city.city} currentUserId={this.props.currentUserId} results={this.state.results} history={this.props.history}/> ) : ( <div></div>)
             }
       </div>
     )
