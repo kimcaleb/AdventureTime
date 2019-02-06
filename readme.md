@@ -28,7 +28,7 @@ A full stack application that allows users to create a personalized itinerary wh
   [GitHub] (https://github.com/seanberrie/AdventureTime) 
 * [Trello] (https://trello.com/b/npNIJPYa/adventure-time)
 ## Wireframes
-[link to wireframes on balsamiq] (https://balsamiq.cloud/sf55nv/p5snykp)
+[link to wireframes on balsamiq] (https://balsamiq.cloud/s8grpme/p1q6thw)
 ### Landing Page
 ![landing page](https://i.imgur.com/IjjCAFK.png)
 
