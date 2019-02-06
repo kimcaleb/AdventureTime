@@ -9,6 +9,7 @@ const MOGODB_URI = process.env.MOGODB_URI
 const PORT = process.env.PORT || 3001
 const usersRoutes = require('./routes/users.js')
 const axios = require('axios')
+const path = require('path')
 
 mongoose.connect(MOGODB_URI, { useNewUrlParser: true }, (err) => {
   console.log(err || 'Connected to MOngoDB')
@@ -16,6 +17,7 @@ mongoose.connect(MOGODB_URI, { useNewUrlParser: true }, (err) => {
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'client', 'build')))
 
 app.get('/api', (req, res) => {
   res.json({ message: 'API root' })
@@ -31,6 +33,10 @@ app.get('/browse', (req, res) => {
     }).catch(err => {
       console.log(err)
     })
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 })
 
 app.listen(PORT, (err) => {
