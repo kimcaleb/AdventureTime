@@ -76,7 +76,7 @@ export default class SignUp extends Component {
                   <option value="New York City">New York City</option>
                   <option value="Miami">Miami</option>
               </select>
-              <input type='submit' />
+              <input className="btn" id="submitBtnForEditingProfile" type='submit' />
             </form>
           </div>
         </div>

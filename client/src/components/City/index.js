@@ -29,8 +29,8 @@ export default class City extends Component {
           <h1>Adventure Time</h1>
           <h3>Where do you want to go?</h3>
           <div className='row'>
-            <div className='column column-50 column-offset-25'>
-              <form onSubmit={this.handleSubmit} className='form'>
+            <div className="placeBox">
+              <form onSubmit={this.handleSubmit}>
                 <label className='label'>City</label>
                 <input
                 className='input'
@@ -49,7 +49,7 @@ export default class City extends Component {
                   onChange={this.handleChange}
                   value={country}
                 />
-                <input type='submit' />
+                <input className="btn" id="submitBtnForEditingProfile" type='submit' />
               </form>
             </div>
           </div>
