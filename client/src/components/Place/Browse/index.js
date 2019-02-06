@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import Geocode from 'react-geocode'
 import axios from 'axios'
 import Results from './Results'
-require('dotenv').config()
 
 export default class Browse extends Component {
 
@@ -14,14 +12,13 @@ export default class Browse extends Component {
   
   handleSubmit = async (e) => {
     e.preventDefault()
-    Geocode.setApiKey(process.env.REACT_APP_API_KEY);
-    let res = await Geocode.fromAddress(`${this.state.cityname}`);
-    const {lat,lng} = res.results[0].geometry.location;
+    let {data:{data:{results}}} = await axios.get(`/geocode?cityname=${this.state.cityname}`);
+    const {lat,lng} = results[0].geometry.location;
     try {
       let { data: {data : { results } } } = await axios.get(`/browse?lat=${lat}&lng=${lng}&type=${this.state.typeOfPlace}`)
       this.setState({results})
     } catch(err) {
-      console.log(err);
+      console.log(err)
     }
   }
 

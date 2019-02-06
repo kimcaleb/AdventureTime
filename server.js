@@ -35,6 +35,15 @@ app.get('/browse', (req, res) => {
     })
 })
 
+app.get('/geocode', (req, res) => {
+  axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${req.query.cityname}&key=${process.env.API_KEY}`)
+    .then(({ data }) => {
+      res.json({ data })
+    }).catch(err => {
+      console.log(err)
+    })
+})
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 })
